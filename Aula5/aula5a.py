@@ -1,6 +1,6 @@
 print('='*50, '\n')
-nome = input('Qual o seu nome?')
-idade = int(input('Qual a sua idade?'))
+nome = input('Qual o seu nome? ')
+idade = int(input('Qual a sua idade? '))
 A = False
 if idade > 17:
     A = True
@@ -16,7 +16,7 @@ if categoria == 'sim':
     B = True
 if B == False:
     print(f'Você pode comprar {produto}')
-elif A and B == True:
+elif A and B:
     print(f'Você pode comprar {produto}')
 else:
     print(f'Você não pode comprar {produto}')
