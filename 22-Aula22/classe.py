@@ -53,14 +53,14 @@ class Pessoa:
             else:
                 self.viva = False
         
-    def corre (self, disctancia):
+    def corre (self, distancia):
         if self.viva:
-            if 100 > disctancia:
+            if 100 > distancia:
                 self.cansada = 'pouco'
                 self.sede = 'pouco'
                 self.fome = 'pouco'
 
-            elif disctancia >=100 and disctancia <200:
+            elif distancia >=100 and distancia <200:
                 self.cansada = 'medio'
                 self.sede = 'medio'
                 self.fome = 'medio'
@@ -93,7 +93,6 @@ class Pessoa:
 
 
 p = Pessoa('Natan', 18, '47920003333', 'm')
-
 p.corre(150)
 p.dorme()
 # p.come()
