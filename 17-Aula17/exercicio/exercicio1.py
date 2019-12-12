@@ -44,4 +44,4 @@ while True:
         print('Sair')
         break
     else:
-        print('Caracter imválido')
+        print('Caracter inválido')

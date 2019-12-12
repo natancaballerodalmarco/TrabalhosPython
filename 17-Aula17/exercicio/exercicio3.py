@@ -9,7 +9,7 @@ sorteio = 0
 
 while True:
     sorteio = int(input('Para participar do sorteio digite um número inteiro ente 1 e 10: '))
-    if 10 < sorteio or sorteio < 1:
+    if 10 < sorteio < 1:
         print('Digite um caractere válido!!!')
     elif sorteio < aleatorio:
         print('O número que você digitou é menor que o sorteado, tente novamente!\n')

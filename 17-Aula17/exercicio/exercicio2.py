@@ -4,6 +4,8 @@
 #---Cadastro da música
 #---Sair
 menu = ''' 
+                       CADASTRO FAIXAS
+
 1 - Cadastrar artista
 2 - Cadastrar álbum
 3 - Cadastrar música
