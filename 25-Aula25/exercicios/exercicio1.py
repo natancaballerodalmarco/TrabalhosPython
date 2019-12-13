@@ -24,7 +24,6 @@ class Cliente:
         self.email = email
         self.endereco = endereco
 
-
     def atualizar (self, nome_atualizado, idade_atualizado, telefone_atualizado, email_atualizado):
         '''
         Este metodo serve para atualizar o cadastro do cliente. 
@@ -37,6 +36,8 @@ class Cliente:
         self.email = email_atualizado
 
     def limite_credito(self,valor):
+        self.limite_credito = int(input('Informe o limite de crédito: '))   
+        
         '''
         O crédito é o valor máximo que o cliente pode ter de saldo negativo.
         Este metodo altera o valor tanto para aumentar o crédito quanto para 
