@@ -177,7 +177,7 @@ finally:
 # Para saber um pouco mais no que você errou, pode-se usar o comando "as" e uma variável.
 # assim pode-se trabalhar ou printar informações do erro sem prejudicar o andamento do 
 # programa.
-
+ 
 
 try:
     inteiro = int(input('Digite um número: '))
