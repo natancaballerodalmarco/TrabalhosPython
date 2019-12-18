@@ -9,11 +9,9 @@ lista = [['1', 'Arnaldo', '23', 'm', 'alexcabeludo2@hotmail.com', '014908648117'
 
 
 def tratar(listabruta):
-    lista_tratada = []
     for cliente in listabruta:
-        lista_tratada.append(cliente)
-        lista_tratada.append('\n')
-    print(lista_tratada)
+        print(cliente)
 
 
 cliente = tratar(lista)
+
