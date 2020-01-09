@@ -1,14 +1,42 @@
+def Check_Adicionar():
+    pass
+
+def Check_Retirar():
+    pass
+
+def Check_Movimentar():
+    pass
+
 def Embarcar():
     pass
 
 def Desembarcar():
     pass
 
-def Perguntar():
+def Atravessar():
     pass
 
-def Atravessar(saida, chegada, p1, p2 = None):
-    pass
+def Definir_Acao():
+    while True:
+        acao = input('''
+(adicionar : Para adicionar um personagem ao barco
+retirar: Para retirar um personagem do barco
+movimentar: Para mover o barco ao outro lado do rio)
+Digite o que deseja fazer: ''')
+
+        if 'adicionar' in acao:
+            Check_Adicionar()
+            break
+        elif 'retirar' in acao:
+            Check_Retirar()
+            break
+        elif 'movimentar' in acao:
+            Check_Movimentar()
+            break
+        else:
+            print('\nVocê digitou uma ação inválida.')
+            continue
+    
 
 canibais_partida = ['Canibal1', 'Canibal2', 'Canibal3']
 missionarios_partida = ['Missionario1', 'Missionario2', 'Missionario3']
@@ -16,23 +44,4 @@ barco = []
 canibais_chegada = []
 missionarios_chegada = []
 
-while:
-    acao = input('''
-    (Adicionar : Para adicionar um personagem ao barco
-    Retirar: Para retirar um personagem do barco
-    Movimentar: Para mover o barco ao outro lado do rio)
-    Digite o que deseja fazer: 
-    ''')
-
-    if acao.capitalize == 'Adicionar':
-        selecionar = input(f'''
-        Canibais Disponíveis:
-        {canibais_partida}
-        Missionários Disponíveis:
-        {missionarios_partida}
-        Digite o nome do personagem que você deseja adicionar ao barco: 
-        ''')
-        if 'Missionario' in selecionar.capitalize:
-            barco.append()
-    if acao.capitalize == 'Retirar':
-        if len(barco) > 0:
+Definir_Acao()
