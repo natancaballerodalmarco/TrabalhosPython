@@ -6,10 +6,6 @@ class Squad:
         self.numeropessoas = 0
         self.linguagembackend = ''
         self.frameworkfrontend = ''
-        print('salve')
     
     def __Str__(self):
         return f'{self.id};{self.nome};{self.descricao};{self.numeropessoas};{self.linguagembackend};{self.frameworkfrontend}'
-
-squad = Squad()
-print(squad)
