@@ -7,5 +7,5 @@ class Squad:
         self.linguagembackend = ''
         self.frameworkfrontend = ''
     
-    def __Str__(self):
+    def __str__(self):
         return f'{self.id};{self.nome};{self.descricao};{self.numeropessoas};{self.linguagembackend};{self.frameworkfrontend}'

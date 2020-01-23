@@ -11,6 +11,7 @@ class SquadController:
         lista_tuplas = self.dao.listar_todos()
         for s in lista_tuplas:
             squad = Squad()
+            print(squad)
             squad.id =  s[0]
             squad.nome = s[1]
             squad.descricao = s[2]

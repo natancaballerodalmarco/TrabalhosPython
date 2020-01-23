@@ -6,7 +6,7 @@ class SquadDao:
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando = f"SELECT * FROM Squad"
+        comando = f"SELECT * FROM Squads"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchall()
         return resultado
@@ -56,4 +56,3 @@ class SquadDao:
         comando = f"DELETE FROM Squads WHERE ID = {id}"
         self.cursor.execute(comando)
         self.conexao.commit()
-
