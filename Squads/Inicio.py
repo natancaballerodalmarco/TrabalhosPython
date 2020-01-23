@@ -1,6 +1,5 @@
 import MySQLdb
 
-
 conexao = MySQLdb.connect(host='mysql.padawans.dev', database='padawans01', user='padawans01', passwd='nn2019')
 cursor = conexao.cursor()
 
@@ -57,7 +56,15 @@ WHERE ID = {squad['Id']}
     cursor.execute(comando)
     conexao.commit()
 
+def deletar(id):
+    comando = f"DELETE FROM Squads WHERE ID = {id}"
+    cursor.execute(comando)
+    conexao.commit()
 
-squad_novo = {'Nome' : 'HeadAches', 'Descricao': 'Só dor de cabeça', 'NumeroPessoas' : 6, 'LinguagemBackEnd': 'Python', 'FrameworkFrontEnd': 'JavaScript'}
-salvar(squad_novo)
+
+# squad_novo = {'Nome' : 'HeadAches', 'Descricao': 'Só dor de cabeça', 'NumeroPessoas' : 6, 'LinguagemBackEnd': 'Python', 'FrameworkFrontEnd': 'JavaScript'}
+# salvar(squad_novo)
+# squad_editado = {'Id':12, 'Nome' : 'HeadAches', 'Descricao': 'Dor de cabeca', 'NumeroPessoas' : 6, 'LinguagemBackEnd': 'Python', 'FrameworkFrontEnd': 'JavaScript'}
+# editar(squad_editado)
+deletar(12)
 print(listar_todos01())
