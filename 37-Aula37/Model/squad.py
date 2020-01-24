@@ -1,4 +1,6 @@
 from Model.backend import BackEnd
+from Model.frontend import FrontEnd
+from Model.sgbd import SGBD
 class Squad:
     def __init__(self):
         self.id = 0
