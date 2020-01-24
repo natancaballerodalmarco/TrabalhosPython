@@ -6,47 +6,51 @@ class SquadDao:
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando = f"SELECT * FROM Squads"
+        comando = f"SELECT * FROM Squads AS S LEFT JOIN BackEnd AS B ON S.BackEnd = B.ID"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchall()
         return resultado
-
+    
     def buscar_por_id(self, id):
-        comando = f"SELECT * FROM Squads WHERE ID = {id}"
+        comando = f"SELECT * FROM Squads AS S LEFT JOIN BackEnd AS B ON S.BackEnd = B.ID WHERE S.ID = {id}"
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
-    
-    def salvar(self, squad = Squad):
-        comando = f"""INSERT INTO Squads
+
+    def salvar(self, squad:Squad):
+        comando = f""" INSERT INTO Squads
         (
             Nome,
             Descricao,
             NumeroPessoas,
-            LinguagemBackEnd,
-            FrameworkFrontEnd
+            BackEnd,
+            FrontEnd,
+            SGBD
         )
         VALUES
         (
             '{squad.nome}',
             '{squad.descricao}',
             {squad.numeropessoas},
-            '{squad.linguagembackend}',
-            '{squad.frameworkfrontend}'
+            {squad.backend.id},
+            {squad.frontend.id},
+            {squad.sgbd.id}
+
         )"""
         self.cursor.execute(comando)
-        self.cursor.commit()
+        self.conexao.commit()
         id_inserido = self.cursor.lastrowid
         return id_inserido
 
     def alterar(self, squad:Squad):
         comando = f""" UPDATE Squads
         SET
-            Nome = '{squad.nome}',
+            NOME = '{squad.nome}',
             Descricao ='{squad.descricao}',
             NumeroPessoas = {squad.numeropessoas},
-            LinguagemBackEnd = '{squad.linguagembackend}',
-            FrameworkFrontEnd = '{squad.frameworkfrontend}'
+            BackEnd = {squad.backend.id}
+            FrontEnd = {squad.frontend.id}
+            SGBD = {squad.sgbd.id}
         WHERE ID = {squad.id}
         """
         self.cursor.execute(comando)

@@ -1,11 +1,15 @@
+from Model.backend import BackEnd
 class Squad:
     def __init__(self):
         self.id = 0
         self.nome = ''
-        self.descricao = ''
+        self.descricao= ''
         self.numeropessoas = 0
-        self.linguagembackend = ''
-        self.frameworkfrontend = ''
-    
+        self.backend = BackEnd()
+        self.frontend = FrontEnd()
+        self.sgbd = SGBD()
+
     def __str__(self):
-        return f'{self.id};{self.nome};{self.descricao};{self.numeropessoas};{self.linguagembackend};{self.frameworkfrontend}'
+        return f'{self.id};{self.nome};{self.descricao};{self.numeropessoas};{self.backend};{self.frontend};{self.sgbd}'
+
+squad = Squad()
