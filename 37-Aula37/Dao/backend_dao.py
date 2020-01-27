@@ -25,7 +25,7 @@ class BackEndDao:
         )
         VALUES
         (
-            '{backend.Nome}'
+            '{backend.nome}'
         )"""
         self.cursor.execute(comando)
         self.conexao.commit()
@@ -35,7 +35,7 @@ class BackEndDao:
     def alterar(self, backend:BackEnd):
         comando = f""" UPDATE BackEnd
         SET
-            Nome = '{backend.Nome}'
+            Nome = '{backend.nome}'
         WHERE ID = {backend.id}
         """
         self.cursor.execute(comando)

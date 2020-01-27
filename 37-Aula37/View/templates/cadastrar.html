@@ -10,44 +10,32 @@
 <body>
     <div class="conteudo">
         <form action="/salvar" method="get">
-            <input type="hidden" name="id" id="id" value="{{pessoa.id}}"> <br/>
+            <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
             <div class="descricoes"> 
                 <label for="nome">Nome:</label>
             </div>
-            <input type="text" name="nome" id="nome" placeholder="Digite o nome" value="{{pessoa.nome}}"> <br/>
+            <input type="text" name="nome" id="nome" placeholder="Digite o nome" value="{{squad.nome}}"> <br/>
             <div class="descricoes"> 
-                <label for="sobrenome">Sobrenome:</label>
+                <label for="descricao">Descricao:</label>
             </div>
-            <input type="text" name="sobrenome" id="sobrenome" value="{{pessoa.sobrenome}}"> <br/>
+            <input type="text" name="descricao" id="descricao" value="{{squad.descricao}}"> <br/>
             <div class="descricoes"> 
-                <label for="idade">Idade:</label>
+                <label for="numeropessoas">NumeroPessoas:</label>
             </div>
-            <input type="text" name="idade" id="idade" value="{{pessoa.idade if pessoa.idade != 0 else ''}}"> <br/>
-            <input type="hidden" name="endereco_id" id="endereco_id" value="{{pessoa.endereco.id}}">
+            <input type="text" name="numeropessoas" id="numeropessoas" value="{{squad.numeropessoas if squad.numeropessoas != 0 else ''}}"> <br/>
+            <input type="hidden" name="backend_id" id="backend_id" value="{{squad.backend.id}}">
             <div class="descricoes"> 
-                <label for="logradouro">Logradouro:</label>
+                <label for="backend">Backend:</label>
             </div>
-            <input type="text" name="logradouro" id="logradouro" value="{{pessoa.endereco.logradouro}}"> <br/>
+            <input type="text" name="backend" id="backend" value="{{squad.backend.nome}}"> <br/>
             <div class="descricoes"> 
-                <label for="numero">Numero:</label>
+                <label for="frontend">Frontend:</label>
             </div>
-            <input type="text" name="numero" id="numero" value="{{pessoa.endereco.numero}}"> <br/>
+            <input type="text" name="frontend" id="frontend" value="{{squad.frontend.nome}}"> <br/>
             <div class="descricoes"> 
-                <label for="complemento">Complemento:</label>
+                <label for="sgbd">SGBD:</label>
             </div>
-            <input type="text" name="complemento" id="complemento" value="{{pessoa.endereco.complemento}}"> <br/>
-            <div class="descricoes"> 
-                <label for="bairro">Bairro:</label>
-            </div>
-            <input type="text" name="bairro" id="bairro" value="{{pessoa.endereco.bairro}}"> <br/>
-            <div class="descricoes"> 
-                <label for="cidade">Cidade:</label>
-            </div>
-            <input type="text" name="cidade" id="cidade" value="{{pessoa.endereco.cidade}}"> <br/>
-            <div class="descricoes"> 
-                <label for="cep">CEP:</label>
-            </div>
-            <input type="text" name="cep" id="cep" value="{{pessoa.endereco.cep}}"> <br/>
+            <input type="text" name="sgbd" id="sgbd" value="{{squad.sgbd.nome}}"> <br/>
 
             <hr/>
             <input type="submit" value="Salvar" class="salvar">

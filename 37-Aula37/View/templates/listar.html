@@ -10,40 +10,38 @@
 <body>
     <div class="conteudo">
         <a class='btn-cadastro' href="/cadastrar">Cadastrar</a>
-        <table id='tabela-pessoa'>
+        <table id='tabela-squad'>
             <thead>
                 <tr>
-                    <th>PessoaId</th>
+                    <th>SquadID</th>
                     <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Idade</th>
-                    <th>EnderecoId</th>
-                    <th>Logradouro</th>
-                    <th>Numero</th>
-                    <th>Complemento</th>
-                    <th>Bairro</th>
-                    <th>Cidade</th>
-                    <th>Cep</th>
+                    <th>Descricao</th>
+                    <th>NumeroPessoas</th>
+                    <th>BackEnd</th>
+                    <th>FrontEnd</th>
+                    <th>SGBD</th>
+                    <th>Nome</th>
+                    <th>Nome</th>
+                    <th>Nome</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                {% for p in lista %}
+                {% for s in lista %}
                 <tr>
-                    <td>{{ p.id }}</td>
-                    <td>{{ p.nome }}</td>
-                    <td>{{ p.sobrenome }}</td>
-                    <td>{{ p.idade }}</td>
-                    <td>{{ p.endereco.id if p.endereco.id  else '' }}</td>
-                    <td>{{ p.endereco.logradouro if p.endereco.logradouro else '' }}</td>
-                    <td>{{ p.endereco.numero if p.endereco.numero else '' }}</td>
-                    <td>{{ p.endereco.complemento if p.endereco.complemento else '' }}</td>
-                    <td>{{ p.endereco.bairro if p.endereco.bairro else '' }}</td>
-                    <td>{{ p.endereco.cidade if p.endereco.cidade else '' }}</td>
-                    <td>{{ p.endereco.cep if p.endereco.cep else '' }}</td>
+                    <td>{{ s.id }}</td>
+                    <td>{{ s.nome }}</td>
+                    <td>{{ s.descricao }}</td>
+                    <td>{{ s.numeropessoas }}</td>
+                    <td>{{ s.backend.id if s.backend.id  else '' }}</td>
+                    <td>{{ s.backend.nome if s.backend.nome else '' }}</td>
+                    <td>{{ s.frontend.id if s.frontend.id else '' }}</td>
+                    <td>{{ s.frontend.nome if s.frontend.nome else '' }}</td>
+                    <td>{{ s.sgbd.id if s.sgbd.id else '' }}</td>
+                    <td>{{ s.sgbd.nome if s.sgbd.nome else '' }}</td>
                     <td>
-                        <a href="/cadastrar?id={{ p.id }}" class="editar">Editar</a>
-                        <a href="/excluir?id={{ p.id }}&id_end={{ p.endereco.id }}" class="excluir">Excluir</a>
+                        <a href="/cadastrar?id={{ s.id }}" class="editar">Editar</a>
+                        <a href="/excluir?id={{ s.id }}&id_backend={{ s.backend.id }}&id_frontend={{ s.frontend.id }}&id_sgbd={{ s.sgbd.id }}" class="excluir">Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -51,5 +49,5 @@
         </table>
 
     </div>
-</body>
+</body>\
 </html>

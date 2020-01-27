@@ -25,7 +25,7 @@ class SGBDDao:
         )
         VALUES
         (
-            '{sgbd.Nome}'
+            '{sgbd.nome}'
         )"""
         self.cursor.execute(comando)
         self.conexao.commit()
@@ -35,7 +35,7 @@ class SGBDDao:
     def alterar(self, sgbd:SGBD):
         comando = f""" UPDATE SGBD
         SET
-            Nome = '{sgbd.Nome}'
+            Nome = '{sgbd.nome}'
         WHERE ID = {sgbd.id}
         """
         self.cursor.execute(comando)

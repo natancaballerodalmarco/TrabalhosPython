@@ -1,14 +1,20 @@
 from flask import Flask, render_template, request, redirect
 import sys
 sys.path.append(r'C:\Users\900154\Desktop\Python\TrabalhosPython\37-Aula37')
-from Controller.pessoa_controller import PessoaController
-from Controller.endereco_controller import EnderecoController
-from Model.endereco import Endereco
-from Model.pessoa import Pessoa
+from Controller.squad_controller import SquadController
+from Controller.backend_controller import BackEndController
+from Controller.frontend_conotroller import FrontEndController
+from Controller.sgbd_controller import SGBDController
+from Model.squad import Squad
+from Model.backend import BackEnd
+from Model.frontend import FrontEnd
+from Model.sgbd import SGBD
 
 app = Flask(__name__)
-pessoa_controller = PessoaController()
-end_controller = EnderecoController()
+squad_controller = SquadController()
+backend_controller = BackEndController()
+frontend_controller = FrontEndController()
+sgbd_controller = SGBDController()
 nome = 'Cadastros'
 
 @app.route('/')
@@ -17,46 +23,59 @@ def inicio():
 
 @app.route('/listar')
 def listar():
-    pessoas = pessoa_controller.listar_todos()
-    return render_template('listar.html', titulo_app = nome, lista = pessoas)
+    squads = squad_controller.listar_todos()
+    return render_template('listar.html', titulo_app = nome, lista = squads)
 
 @app.route('/cadastrar')
 def cadastrar():
-    pessoa = Pessoa()
-    pessoa.endereco = Endereco()
+    squad = Squad()
+    squad.backend = BackEnd()
+    squad.frontend = FrontEnd()
+    squad.sgbd = SGBD()
     if 'id' in request.args:
         id = request.args['id']
-        pessoa = pessoa_controller.buscar_por_id(id)
-    return render_template('cadastrar.html', titulo_app = nome, pessoa = pessoa )
+        squad = squad_controller.buscar_por_id(id)
+    return render_template('cadastrar.html', titulo_app = nome, squad = squad )
 
 
 @app.route('/excluir')
 def excluir():
     id = int(request.args['id'])
-    id_end = request.args['id_end']
-    pessoa_controller.deletar(id)
-    if id_end != 'None':
-        end_controller.deletar(id_end)
+    id_backend = request.args['id_backend']
+    id_frontend = request.args['id_frontend']
+    id_sgbd = request.args['id_sgbd']
+    squad_controller.deletar(id)
+    if id_backend != 'None':
+        backend_controller.deletar(id_backend)
+    if id_frontend != 'None':
+        frontend_controller.deletar(id_frontend)
+    if id_frontend != 'None':
+        frontend_controller.deletar(id_frontend)
     return redirect('/listar')
 
 @app.route('/salvar')
 def salvar():
-    pessoa = Pessoa()
-    pessoa.id = request.args['id']
-    pessoa.nome = request.args['nome']
-    pessoa.sobrenome = request.args['sobrenome']
-    pessoa.idade = request.args['idade']
+    squad = Squad()
+    squad.id = request.args['id']
+    squad.nome = request.args['nome']
+    squad.descricao = request.args['descricao']
+    squad.numeropessoas = request.args['numeropessoas']
 
-    end = Endereco()
-    end.id = request.args['endereco_id']
-    end.logradouro = request.args['logradouro']
-    end.numero = request.args['numero']
-    end.complemento = request.args['complemento']
-    end.bairro = request.args['bairro']
-    end.cidade = request.args['cidade']
-    end.cep = request.args['cep']
+    backend = BackEnd()
+    backend.id = request.args['backend_id']
+    backend.nome = request.args['nome']
+    squad.backend = backend
 
-    pessoa.endereco = end
+    frontend = FrontEnd()
+    frontend.id = request.args['frontend_id']
+    frontend.nome = request.args['nome']
+    squad.frontend = frontend
+
+    sgbd = SGBD()
+    sgbd.id = request.args['sgbd_id']
+    sgbd.nome = request.args['nome']
+    squad.sgbd = sgbd
+    
     if pessoa.id == 0:
         pessoa_controller.salvar(pessoa)
     else:
@@ -64,4 +83,3 @@ def salvar():
     return redirect('/listar')
 
 app.run(debug=True)
-

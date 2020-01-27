@@ -25,7 +25,7 @@ class FrontEndDao:
         )
         VALUES
         (
-            '{frontend.Nome}'
+            '{frontend.nome}'
         )"""
         self.cursor.execute(comando)
         self.conexao.commit()
@@ -35,7 +35,7 @@ class FrontEndDao:
     def alterar(self, frontend:FrontEnd):
         comando = f""" UPDATE FrontEnd
         SET
-            Nome = '{frontend.Nome}'
+            Nome = '{frontend.nome}'
         WHERE ID = {frontend.id}
         """
         self.cursor.execute(comando)

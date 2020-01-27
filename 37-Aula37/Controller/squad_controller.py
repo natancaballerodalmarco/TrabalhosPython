@@ -23,33 +23,33 @@ class SquadController:
             squad.descricao = s[2]
             squad.numeropessoas = s[3]
             squad.backend = BackEnd()
-            squad.backend.id = s[5]
-            squad.backend.nome = s[6]
+            squad.backend.id = s[7]
+            squad.backend.nome = s[8]
             squad.frontend = FrontEnd()
-            squad.frontend.id = s[8]
-            squad.forntend.nome = s[9]
+            squad.frontend.id = s[9]
+            squad.frontend.nome = s[10]
             squad.sgbd = SGBD()
-            squad.sgbd.id = s[10]
-            squad.sgbd.nome = s[11]
+            squad.sgbd.id = s[11]
+            squad.sgbd.nome = s[12]
             lista_squads.append(squad)
         return lista_squads
 
     def buscar_por_id(self, id):
         s = self.dao.buscar_por_id(id)
         squad = Squad()
-        squad.id =  s[1]
+        squad.id =  s[0]
         squad.nome = s[1]
         squad.descricao = s[2]
         squad.numeropessoas = s[3]
         squad.backend = BackEnd()
-        squad.backend.id = s[5]
-        squad.backend.nome = s[6]
+        squad.backend.id = s[7]
+        squad.backend.nome = s[8]
         squad.frontend = FrontEnd()
-        squad.frontend.id = s[8]
-        squad.forntend.nome = s[9]
+        squad.frontend.id = s[9]
+        squad.frontend.nome = s[10]
         squad.sgbd = SGBD()
-        squad.sgbd.id = s[10]
-        squad.sgbd.nome = s[11]
+        squad.sgbd.id = s[11]
+        squad.sgbd.nome = s[12]
         return squad
 
     def salvar(self, squad:Squad):

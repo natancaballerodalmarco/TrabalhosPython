@@ -6,13 +6,20 @@ class SquadDao:
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando = f"SELECT * FROM Squads AS S LEFT JOIN BackEnd AS B ON S.BackEnd = B.ID"
+        comando = f"""SELECT * FROM Squads AS S
+LEFT JOIN BackEnd AS B ON S.BackEnd = B.ID
+LEFT JOIN FrontEnd AS F ON S.FrontEnd = F.ID
+LEFT JOIN SGBD AS G ON S.SGBD = G.ID"""
         self.cursor.execute(comando)
         resultado = self.cursor.fetchall()
         return resultado
     
     def buscar_por_id(self, id):
-        comando = f"SELECT * FROM Squads AS S LEFT JOIN BackEnd AS B ON S.BackEnd = B.ID WHERE S.ID = {id}"
+        comando = f"""SELECT * FROM Squads AS S
+LEFT JOIN BackEnd AS B ON S.BackEnd = B.ID
+LEFT JOIN FrontEnd AS F ON S.FrontEnd = F.ID
+LEFT JOIN SGBD AS G ON S.SGBD = G.ID
+WHERE S.ID = {id}"""
         self.cursor.execute(comando)
         resultado = self.cursor.fetchone()
         return resultado
@@ -43,16 +50,15 @@ class SquadDao:
         return id_inserido
 
     def alterar(self, squad:Squad):
-        comando = f""" UPDATE Squads
-        SET
-            NOME = '{squad.nome}',
-            Descricao ='{squad.descricao}',
-            NumeroPessoas = {squad.numeropessoas},
-            BackEnd = {squad.backend.id}
-            FrontEnd = {squad.frontend.id}
-            SGBD = {squad.sgbd.id}
-        WHERE ID = {squad.id}
-        """
+        comando = f"""UPDATE Squads 
+SET
+Nome = '{squad.nome}', 
+Descricao ='{squad.descricao}', 
+NumeroPessoas = {squad.numeropessoas}, 
+BackEnd = {squad.backend.id}, 
+FrontEnd = {squad.frontend.id}, 
+SGBD = {squad.sgbd.id}
+WHERE ID = {squad.id}"""
         self.cursor.execute(comando)
         self.conexao.commit()
 
