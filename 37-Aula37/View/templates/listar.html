@@ -9,45 +9,46 @@
 </head>
 <body>
     <div class="conteudo">
-        <a class='btn-cadastro' href="/cadastrar">Cadastrar</a>
-        <table id='tabela-squad'>
-            <thead>
-                <tr>
-                    <th>SquadID</th>
-                    <th>Nome</th>
-                    <th>Descricao</th>
-                    <th>NumeroPessoas</th>
-                    <th>BackEnd</th>
-                    <th>FrontEnd</th>
-                    <th>SGBD</th>
-                    <th>Nome</th>
-                    <th>Nome</th>
-                    <th>Nome</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for s in lista %}
-                <tr>
-                    <td>{{ s.id }}</td>
-                    <td>{{ s.nome }}</td>
-                    <td>{{ s.descricao }}</td>
-                    <td>{{ s.numeropessoas }}</td>
-                    <td>{{ s.backend.id if s.backend.id  else '' }}</td>
-                    <td>{{ s.backend.nome if s.backend.nome else '' }}</td>
-                    <td>{{ s.frontend.id if s.frontend.id else '' }}</td>
-                    <td>{{ s.frontend.nome if s.frontend.nome else '' }}</td>
-                    <td>{{ s.sgbd.id if s.sgbd.id else '' }}</td>
-                    <td>{{ s.sgbd.nome if s.sgbd.nome else '' }}</td>
-                    <td>
-                        <a href="/cadastrar?id={{ s.id }}" class="editar">Editar</a>
-                        <a href="/excluir?id={{ s.id }}&id_backend={{ s.backend.id }}&id_frontend={{ s.frontend.id }}&id_sgbd={{ s.sgbd.id }}" class="excluir">Excluir</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
+        <a class='btn-cadastro' href="/cadastrar" style="margin-bottom: 2%;">Cadastrar</a>
+        <div style="margin-bottom: 2%;">
+            <table id='tabela-squad'>
+                <thead>
+                    <tr>
+                        <th>SquadID</th>
+                        <th>Nome</th>
+                        <th>Descricao</th>
+                        <th>NumeroPessoas</th>
+                        <th>BackEnd</th>
+                        <th>Nome</th>
+                        <th>FrontEnd</th>
+                        <th>Nome</th>
+                        <th>SGBD</th>
+                        <th>Nome</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in lista %}
+                    <tr>
+                        <td>{{ s.id }}</td>
+                        <td>{{ s.nome }}</td>
+                        <td>{{ s.descricao }}</td>
+                        <td>{{ s.numeropessoas }}</td>
+                        <td>{{ s.backend.id if s.backend.id  else '' }}</td>
+                        <td>{{ s.backend.nome if s.backend.nome else '' }}</td>
+                        <td>{{ s.frontend.id if s.frontend.id else '' }}</td>
+                        <td>{{ s.frontend.nome if s.frontend.nome else '' }}</td>
+                        <td>{{ s.sgbd.id if s.sgbd.id else '' }}</td>
+                        <td>{{ s.sgbd.nome if s.sgbd.nome else '' }}</td>
+                        <td>
+                            <a href="/cadastrar?id={{ s.id }}" class="editar">Editar</a>
+                            <a href="/excluir?id={{ s.id }}&id_backend={{ s.backend.id }}&id_frontend={{ s.frontend.id }}&id_sgbd={{ s.sgbd.id }}" class="excluir">Excluir</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</body>\
+</body>
 </html>

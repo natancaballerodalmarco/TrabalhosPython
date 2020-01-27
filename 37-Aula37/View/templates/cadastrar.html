@@ -23,19 +23,30 @@
                 <label for="numeropessoas">NumeroPessoas:</label>
             </div>
             <input type="text" name="numeropessoas" id="numeropessoas" value="{{squad.numeropessoas if squad.numeropessoas != 0 else ''}}"> <br/>
+
+
             <input type="hidden" name="backend_id" id="backend_id" value="{{squad.backend.id}}">
             <div class="descricoes"> 
                 <label for="backend">Backend:</label>
             </div>
             <input type="text" name="backend" id="backend" value="{{squad.backend.nome}}"> <br/>
+
+
             <div class="descricoes"> 
                 <label for="frontend">Frontend:</label>
             </div>
-            <input type="text" name="frontend" id="frontend" value="{{squad.frontend.nome}}"> <br/>
+            <input type="hidden" name="frontend_id" id="frontend_id" value="{{squad.frontend.id}}"> <br/>
             <div class="descricoes"> 
+                <label for="frontend">Frontend:</label>
+            </div>
+            <input type='text' name="frontend" id="frontend" value="{{squad.frontend.nome}}"> <br/>
+
+
+            <div class="descricoes">
                 <label for="sgbd">SGBD:</label>
             </div>
-            <input type="text" name="sgbd" id="sgbd" value="{{squad.sgbd.nome}}"> <br/>
+            <input type="text" name="sgbd_id" id="sgbd_id" value="{{squad.sgbd.id}}"> <br/>
+
 
             <hr/>
             <input type="submit" value="Salvar" class="salvar">
