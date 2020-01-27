@@ -1,0 +1,4 @@
+1;Blumenau;Fortaleza;Johann Maul;210;Casa
+2;Gaspar;FimDoMundo;Inferno;0;CasaDePacto
+3;Blumenau;Velha;Gerenal Orosio;1542;Condomínio
+4;São Paulo;Av. Paulista;Paulista;5436;Apartamento de Luxo
