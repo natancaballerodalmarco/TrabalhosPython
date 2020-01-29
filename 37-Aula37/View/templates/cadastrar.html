@@ -11,40 +11,40 @@
     <div class="conteudo">
         <form action="/salvar" method="get">
             
-            <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
+            <input type="hidden" name="ID" id="ID" value="{{squad.id}}"> <br/>
             <div class="descricoes"> 
                 <label for="nome">Nome:</label>
             </div>
-            <input type="text" name="nome" id="nome" placeholder="Digite o nome" value="{{squad.nome}}"> <br/>
+            <input type="text" name="Nome" id="Nome" placeholder="Digite o nome" value="{{squad.nome}}"> <br/>
             <div class="descricoes"> 
                 <label for="descricao">Descricao:</label>
             </div>
-            <input type="text" name="descricao" id="descricao" value="{{squad.descricao}}"> <br/>
+            <input type="text" name="Descricao" id="Descricao" value="{{squad.descricao}}"> <br/>
             <div class="descricoes"> 
                 <label for="numeropessoas">NumeroPessoas:</label>
             </div>
-            <input type="text" name="numeropessoas" id="numeropessoas" value="{{squad.numeropessoas if squad.numeropessoas != 0 else ''}}"> <br/>
+            <input type="text" name="NumeroPessoas" id="NumeroPessoas" value="{{squad.numeropessoas if squad.numeropessoas != 0 else ''}}"> <br/>
 
 
-            <input type="hidden" name="backend_id" id="backend_id" value="{{squad.backend.id}}">
+            <input type="hidden" name="BackEnd" id="BackEnd" value="{{squad.backend.id}}">
             <div class="descricoes"> 
                 <label for="backend">BackEnd:</label>
             </div>
-            <input type="text" name="backend" id="backend" value="{{squad.backend.nome}}"> <br/>
+            <input type="text" name="Nome" id="Nome" value="{{squad.backend.nome}}"> <br/>
 
 
-            <input type="hidden" name="frontend_id" id="frontend_id" value="{{squad.frontend.id}}">
+            <input type="hidden" name="FrontEnd" id="FrontEnd" value="{{squad.frontend.id}}">
             <div class="descricoes"> 
                 <label for="frontend">FrontEnd:</label>
             </div>
-            <input type="text" name="frontend" id="frontend" value="{{squad.frontend.nome}}"> <br/>
+            <input type="text" name="Nome" id="Nome" value="{{squad.frontend.nome}}"> <br/>
 
 
-            <input type="hidden" name="sgbd_id" id="sgbd_id" value="{{squad.sgbd.id}}">
+            <input type="hidden" name="SGBD" id="SGBD" value="{{squad.sgbd.id}}">
             <div class="descricoes"> 
                 <label for="sgbd">SGBD:</label>
             </div>
-            <input type="text" name="sgbd" id="sgbd" value="{{squad.sgbd.nome}}"> <br/>
+            <input type="text" name="Nome" id="Nome" value="{{squad.sgbd.nome}}"> <br/>
             
 
             <hr/>
@@ -54,3 +54,4 @@
     </div>
 </body>
 </html>
+
