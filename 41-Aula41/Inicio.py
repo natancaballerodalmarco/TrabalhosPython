@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 
-from Controllers.pessoa_controller import PessoaController
+from controllers.pessoa_controller import PessoaController
 
 app = Flask(__name__)
 api = Api(app)
