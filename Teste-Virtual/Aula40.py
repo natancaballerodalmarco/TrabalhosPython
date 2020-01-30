@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_restful 
+from flask_restful  import
 
 app = Flask(__name__)
 
@@ -7,4 +7,5 @@ app = Flask(__name__)
 def home():
     return 'Bem vindo a API'
 
-app.run(debug=True, port=80)
+if __name__ == '__main__':
+    app.run(debug=True, port=80)
