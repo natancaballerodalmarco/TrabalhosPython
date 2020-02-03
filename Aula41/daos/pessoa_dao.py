@@ -22,11 +22,27 @@ class PessoaDao:
         p = PessoaModel(pessoa[1], pessoa[2], pessoa[3], pessoa[0])
         return p.__dict__
 
-    def insert(self, pessoa):
-        return f'Criando a pessoa: {pessoa}'
+    def insert(self, pessoa:PessoaModel):
+        self.cursor.execute(f"""
+INSERT INTO Natan_Pessoa
+(Nome, Sobrenome, Idade) 
+VALUES
+('{pessoa.nome}','{pessoa.sobrenome}','{pessoa.idade}')""")
+        self.connection.commit()
+        id = self.cursor.lastrowid
+        pessoa.id = id
+        return pessoa.__dict__
 
-    def update(self, pessoa):
-        return f'Alterando o cadastro da pessoa: {pessoa}'
+    def update(self, pessoa=PessoaModel):
+        self.cursor.execute(f"""
+UPDATE Natan_Pessoa
+SET 
+Nome = '{pessoa.nome}', 
+Sobrenome = '{pessoa.sobrenome}', 
+Idade = '{pessoa.idade}'
+WHERE ID = '{pessoa.id}'""")
+        self.connection.commit()
+        return pessoa.__dict__
 
     def delete(self, id):
         self.cursor.execute(f"DELETE FROM Natan_Pessoa WHERE ID={id}")
