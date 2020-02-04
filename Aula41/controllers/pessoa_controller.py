@@ -1,4 +1,3 @@
-from flask import Flask
 from flask_restful import Resource
 from flask import request
 
@@ -19,7 +18,6 @@ class  PessoaController(Resource):
         sobrenome = request.json['sobrenome']
         idade = int(request.json['idade'])
         pessoa = PessoaModel(nome, sobrenome, idade)
-        print(nome)
         return self.dao.insert(pessoa)
 
     def put(self, id):
