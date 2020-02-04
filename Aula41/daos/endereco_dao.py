@@ -49,3 +49,25 @@ VALUES
         id = self.cursor.lastrowid
         endereco.id = id
         return endereco.__dict__
+
+    def update(self, endereco:EnderecoModel):
+        self.cursor.execute(f"""UPDATE Natan_Endereco
+SET
+Cidade = '{endereco.cidade}', 
+Bairro = '{endereco.bairro}', 
+Logradouro = '{endereco.logradouro}', 
+Numero = {endereco.numero}, 
+Complemento = '{endereco.complemento}'
+WHERE ID = {endereco.id}
+""")
+
+        self.connection.commit()
+
+        return endereco.__dict__
+
+    def delete(self, id):
+        self.cursor.execute(f"DELETE FROM Natan_Endereco WHERE ID = {id}")
+        self.connection.commit()
+
+        return f'Removido o cadastro de id = {id}'
+
