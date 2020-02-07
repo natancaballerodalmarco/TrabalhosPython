@@ -14,4 +14,4 @@ api.add_resource(EnderecoController, '/api/endereco/<int:id>', endpoint='enderec
 def inicio():
     return 'Bien Venuti Endereco'
 
-app.run(debug=True, port=500)
+app.run(debug=True, port=500 )

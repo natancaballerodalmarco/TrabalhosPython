@@ -1,7 +1,9 @@
 import MySQLdb
 
 from Aula41.models.endereco_model import EnderecoModel
+
 class EnderecoDao:
+
     def __init__(self):
         self.connection = MySQLdb.connect(host='mysql.topskills.dev', database='topskills01', user='topskills01', passwd='ts2019')
         self.cursor = self.connection.cursor()
@@ -21,45 +23,47 @@ class EnderecoDao:
 
     def get_by_id(self,id):
         self.cursor.execute(f"SELECT * FROM Natan_Endereco WHERE ID = {id}")
-        endereco = self.cursor.fetchone()
-        end = EnderecoModel(endereco[1], endereco[2], endereco[3], endereco[4], endereco[5], endereco[0])
+        end = self.cursor.fetchone()
 
-        return end.__dict__
+        endereco = EnderecoModel(end[1], end[2], end[3], end[4], end[5], end[0])
+
+        return endereco.__dict__
 
 
     def insert(self, endereco:EnderecoModel):
         self.cursor.execute(f"""INSERT INTO Natan_Endereco
-(
-    Cidade,
-    Bairro,
-    Logradouro,
-    Numero,
-    Complemento
-) 
-VALUES
-(
-    '{endereco.cidade}',
-    '{endereco.bairro}',
-    '{endereco.logradouro}',
-    {endereco.numero},
-    '{endereco.complemento}'
-)""")
+                                (
+                                    Cidade,
+                                    Bairro,
+                                    Logradouro,
+                                    Numero,
+                                    Complemento
+                                ) 
+                                VALUES
+                                (
+                                    '{endereco.cidade}',
+                                    '{endereco.bairro}',
+                                    '{endereco.logradouro}',
+                                    {endereco.numero},
+                                    '{endereco.complemento}'
+                                )""")
 
         self.connection.commit()
         id = self.cursor.lastrowid
         endereco.id = id
+
         return endereco.__dict__
 
     def update(self, endereco:EnderecoModel):
         self.cursor.execute(f"""UPDATE Natan_Endereco
-SET
-Cidade = '{endereco.cidade}', 
-Bairro = '{endereco.bairro}', 
-Logradouro = '{endereco.logradouro}', 
-Numero = {endereco.numero}, 
-Complemento = '{endereco.complemento}'
-WHERE ID = {endereco.id}
-""")
+                                SET
+                                    Cidade = '{endereco.cidade}', 
+                                    Bairro = '{endereco.bairro}', 
+                                    Logradouro = '{endereco.logradouro}', 
+                                    Numero = {endereco.numero}, 
+                                    Complemento = '{endereco.complemento}'
+                                WHERE ID = {endereco.id}
+                                """)
 
         self.connection.commit()
 
@@ -69,5 +73,5 @@ WHERE ID = {endereco.id}
         self.cursor.execute(f"DELETE FROM Natan_Endereco WHERE ID = {id}")
         self.connection.commit()
 
-        return f'Removido o cadastro de id = {id}'
+        return f'Removido o endereco de id = {id}'
 
