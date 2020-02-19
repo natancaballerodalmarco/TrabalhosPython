@@ -13,4 +13,4 @@ api.add_resource(AutorController, '/api/autor/<int:id>', endpoint='autor')
 api.add_resource(PessoaController, '/api/pessoa', endpoint='pessoas')
 api.add_resource(PessoaController, '/api/pessoa/<int:id>', endpoint='pessoa')
 
-app.run(debug=True)
+app.run(debug=True, port=99)
